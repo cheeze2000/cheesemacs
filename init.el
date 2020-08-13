@@ -61,9 +61,23 @@
       (display-buffer buffer '(display-buffer-same-window))))
   :bind
   (("C-x g" . magit-status)))
+(use-package org
+  :config
+  (org-mode)
+  (setq org-agenda-files '("~/org"))
+  (setq org-agenda-tags-column 60)
+  (setq org-startup-folded 'content)
+  (setq org-tags-column 60)
+  (org-align-tags)
+  :bind
+  (("C-c a" . org-agenda)
+   ("C-M-f" . org-do-demote)
+   ("C-M-b" . org-do-promote)
+   ("C-c o" . org-todo)))
 (use-package treemacs
   :config
   (treemacs--set-width 27)
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
   :bind
   (("C-o" . ace-window)
    ("C-x d" . treemacs-select-window))
@@ -72,6 +86,5 @@
   (other-window 1)
   (treemacs-select-window))
 
-(bind-key* "C-c C-v" 'comment-or-uncomment-region)
 (bind-key* "M-i" 'find-init-file)
 (bind-key "RET" 'newline-and-indent-improved)
