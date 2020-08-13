@@ -1,0 +1,26 @@
+{
+  "schemes": [
+    {
+      "name": "Pastel",
+      "cursorColor": "#DEDEDE",
+      "background": "#1C1C1C",
+      "foreground": "#DEDEDE",
+      "black": "#1E1E1E",
+      "blue": "#A8A8FC",
+      "cyan": "#A8FCFC",
+      "green": "#A8FCA8",
+      "purple": "#FCA8FC",
+      "red": "#FCA8A8",
+      "white": "#DEDEDE",
+      "yellow": "#FCFCA8",
+      "brightBlack": "#1E1E1E",
+      "brightBlue": "#A8A8FC",
+      "brightCyan": "#A8FCFC",
+      "brightGreen": "#A8FCA8",
+      "brightPurple": "#FCA8FC",
+      "brightRed": "#FCA8A8",
+      "brightWhite": "#DEDEDE",
+      "brightYellow": "#FCFCA8"
+    }
+  ]
+}
