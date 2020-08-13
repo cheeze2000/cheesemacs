@@ -40,7 +40,7 @@
 (setq-default initial-scratch-message nil)
 (setq-default make-backup-files nil)
 (setq-default mode-line-format
-  (list " " mode-line-modified "   %b   Ln %l, Col %c  " mode-line-modes))
+  (list " " mode-line-modified "   %b  Ln %l, Col %c  " mode-line-modes))
 (setq-default ring-bell-function 'ignore)
 (setq-default show-trailing-whitespace t)
 (setq-default straight-use-package-by-default t)
