@@ -38,6 +38,7 @@
   `(query-replace ((,class (:foreground ,red :background ,bg3 :underline nil))))
   `(lazy-highlight ((,class (:foreground ,red :underline t))))
   `(region ((,class (:background ,bg4))))
+  `(secondary-selection ((,class (:background ,bg4))))
   `(trailing-whitespace ((,class (:foreground ,red :underline t))))
   `(mode-line ((,class (:foreground ,red :background ,bg3))))
   `(mode-line-inactive ((,class (:foreground ,bg5 :background ,bg3))))
