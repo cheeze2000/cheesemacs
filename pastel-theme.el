@@ -18,7 +18,7 @@
       (green "#a8fca8")
       (purple "#fca8fc")
       (red "#fca8a8")
-      (white "#a8a8a8")
+      (white "#fcfcfc")
       (yellow "#fcfca8"))
 (custom-theme-set-faces
 'pastel
