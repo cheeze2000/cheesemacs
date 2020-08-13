@@ -30,6 +30,10 @@
 (global-display-line-numbers-mode)
 (load-theme 'pastel t)
 (menu-bar-mode -1)
+(set-display-table-slot
+  standard-display-table
+  'vertical-border
+  (make-glyph-code ?┃))
 (set-frame-font "Bitstream Vera Sans Mono 12" nil t)
 
 (setq-default auto-save-default nil)
