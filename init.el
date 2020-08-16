@@ -51,6 +51,7 @@
 (setq-default tab-width 2)
 
 (straight-use-package 'use-package)
+(use-package haskell-mode)
 (use-package ivy
   :config
   (ivy-mode))
@@ -63,12 +64,9 @@
   (("C-x g" . magit-status)))
 (use-package org
   :config
-  (org-mode)
   (setq org-agenda-files '("~/org"))
   (setq org-agenda-tags-column 60)
-  (setq org-startup-folded 'content)
   (setq org-tags-column 60)
-  (org-align-tags)
   :bind
   (("C-c a" . org-agenda)
    ("C-M-f" . org-do-demote)
