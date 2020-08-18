@@ -56,33 +56,33 @@
   :config
   (ivy-mode))
 (use-package magit
+  :bind
+  (("C-x g" . magit-status))
   :config
   (setq magit-display-buffer-function
     (lambda (buffer)
-      (display-buffer buffer '(display-buffer-same-window))))
-  :bind
-  (("C-x g" . magit-status)))
+      (display-buffer buffer '(display-buffer-same-window)))))
 (use-package org
-  :config
+  :demand t
+  :bind
+  (("C-c a" . org-agenda))
+  :init
   (setq org-agenda-files '("~/org"))
   (setq org-agenda-tags-column 60)
   (setq org-tags-column 60)
-  :bind
-  (("C-c a" . org-agenda)
-   ("C-M-f" . org-do-demote)
-   ("C-M-b" . org-do-promote)
-   ("C-c o" . org-todo)))
-(use-package treemacs
   :config
-  (treemacs--set-width 27)
-  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
+  (org-agenda-list)
+  (delete-other-windows))
+(use-package treemacs
+  :demand t
   :bind
   (("C-o" . ace-window)
    ("C-x d" . treemacs-select-window))
-  :init
-  (split-window-below)
-  (other-window 1)
-  (treemacs-select-window))
+  :config
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
+  (treemacs-select-window)
+  (treemacs--set-width 27)
+  (treemacs-toggle-node))
 
 (bind-key* "M-i" 'find-init-file)
 (bind-key "RET" 'newline-and-indent-improved)
