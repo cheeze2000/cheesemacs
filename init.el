@@ -69,10 +69,12 @@
   :init
   (setq org-agenda-files '("~/org"))
   (setq org-agenda-tags-column 60)
+  (setq org-agenda-window-setup 'current-window)
   (setq org-tags-column 60)
+  (split-window-below)
+  (other-window 1)
   :config
-  (org-agenda-list)
-  (delete-other-windows))
+  (org-agenda-list))
 (use-package treemacs
   :demand t
   :bind
