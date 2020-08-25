@@ -58,19 +58,20 @@
 (use-package magit
   :bind
   (("C-x g" . magit-status))
-  :config
-  (setq magit-display-buffer-function
+  :custom
+  (magit-display-buffer-function
     (lambda (buffer)
       (display-buffer buffer '(display-buffer-same-window)))))
 (use-package org
   :demand t
   :bind
   (("C-c a" . org-agenda))
+  :custom
+  (org-agenda-files '("~/org"))
+  (org-agenda-tags-column 60)
+  (org-agenda-window-setup 'current-window)
+  (org-tags-column 60)
   :init
-  (setq org-agenda-files '("~/org"))
-  (setq org-agenda-tags-column 60)
-  (setq org-agenda-window-setup 'current-window)
-  (setq org-tags-column 60)
   (split-window-below)
   (other-window 1)
   :config
