@@ -97,6 +97,7 @@
   (org-agenda-files '("~/org"))
   (org-agenda-tags-column 60)
   (org-agenda-window-setup 'current-window)
+  (org-list-allow-alphabetical t)
   (org-tags-column 60)
   :init
   (split-window-below)
