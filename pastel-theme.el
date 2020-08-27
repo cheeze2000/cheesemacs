@@ -1,6 +1,11 @@
+;;; pastel-theme.el --- Pastel theme for Emacs
+
+;;; Commentary:
+
 ;; Created with ThemeCreator, https://github.com/mswift42/themecreator
 ;; Edited by cheeze2000
 
+;;; Code:
 (deftheme pastel)
 (let ((class '((class color) (min-colors 89)))
       (fg1 "#eeeeee")
@@ -51,10 +56,18 @@
   `(ivy-minibuffer-match-face-1 ((,class (:background ,bg3))))
   `(ivy-minibuffer-match-face-2 ((,class (:background ,bg3))))
   `(ivy-minibuffer-match-face-3 ((,class (:background ,bg3))))
-  `(ivy-minibuffer-match-face-4 ((,class (:background ,bg3))))))
+  `(ivy-minibuffer-match-face-4 ((,class (:background ,bg3))))
+  `(treemacs-directory-face ((,class (:foreground ,red))))
+  `(flycheck-warning ((,class (:foreground ,red :underline t))))
+  `(flycheck-inline-warning ((,class (:foreground ,red))))
+  `(flycheck-error ((,class (:foreground ,red :bold t :underline t))))
+  `(flycheck-inline-error ((,class (:foreground ,red :bold t))))))
+
 
 (when load-file-name
   (add-to-list 'custom-theme-load-path
     (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'pastel)
+
+;;; pastel-theme.el ends here
