@@ -50,19 +50,28 @@
   `(vertical-border ((,class (:foreground ,bg3 :background ,bg2))))
   `(minibuffer-prompt ((,class (:foreground ,red))))
   `(cursor ((,class (:background ,white))))
-  `(line-number ((,class (:foreground ,bg4 :background ,bg3))))
-  `(line-number-current-line ((,class (:foreground ,white :background ,bg2))))
+
+  ;; flycheck
+  `(flycheck-warning ((,class (:foreground ,red :underline t))))
+  `(flycheck-error ((,class (:foreground ,red :bold t :underline t))))
+
+  ;; flycheck-inline
+  `(flycheck-inline-warning ((,class (:foreground ,red))))
+  `(flycheck-inline-error ((,class (:foreground ,red :bold t))))
+
+  ;; ivy
   `(ivy-current-match ((,class (:background nil :underline t))))
   `(ivy-minibuffer-match-face-1 ((,class (:background ,bg3))))
   `(ivy-minibuffer-match-face-2 ((,class (:background ,bg3))))
   `(ivy-minibuffer-match-face-3 ((,class (:background ,bg3))))
   `(ivy-minibuffer-match-face-4 ((,class (:background ,bg3))))
-  `(treemacs-directory-face ((,class (:foreground ,red))))
-  `(flycheck-warning ((,class (:foreground ,red :underline t))))
-  `(flycheck-inline-warning ((,class (:foreground ,red))))
-  `(flycheck-error ((,class (:foreground ,red :bold t :underline t))))
-  `(flycheck-inline-error ((,class (:foreground ,red :bold t))))))
 
+  ;; line-number
+  `(line-number ((,class (:foreground ,bg4 :background ,bg3))))
+  `(line-number-current-line ((,class (:foreground ,white :background ,bg2))))
+
+  ;; treemacs
+  `(treemacs-directory-face ((,class (:foreground ,red))))))
 
 (when load-file-name
   (add-to-list 'custom-theme-load-path
