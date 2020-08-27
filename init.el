@@ -1,3 +1,7 @@
+;;; init.el --- Init file
+
+;;; Commentary:
+;;; Code:
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -63,8 +67,17 @@
       (".js" . "js")
       (".svelte" . "svelte")
       ("_default" . "emacs"))))
+(use-package flycheck-infer
+  :after flycheck
+  :load-path "~/.emacs.d/flycheck-infer")
 
 (setq-default straight-use-package-by-default t)
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+(use-package flycheck-inline
+  :config
+  (global-flycheck-inline-mode))
 (use-package haskell-mode)
 (use-package ivy
   :config
@@ -104,3 +117,7 @@
 
 (bind-key* "M-i" 'find-init-file)
 (bind-key "RET" 'newline-and-indent-improved)
+
+(provide 'init)
+
+;;; init.el ends here
