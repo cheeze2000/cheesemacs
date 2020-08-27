@@ -47,10 +47,24 @@
   (list " " mode-line-modified "   %b  Ln %l, Col %c  " mode-line-modes))
 (setq-default ring-bell-function 'ignore)
 (setq-default show-trailing-whitespace t)
-(setq-default straight-use-package-by-default t)
 (setq-default tab-width 2)
 
 (straight-use-package 'use-package)
+(use-package elcord-wsl
+  :load-path "~/.emacs.d/elcord-wsl"
+  :custom
+  (elcord-wsl--load-path "~/.emacs.d/elcord-wsl")
+  (elcord-wsl--assets-alist
+    '((".cpp" . "cpp")
+      (".hpp" . "cpp")
+      (".gitignore" . "git")
+      (".cabal" . "haskell")
+      (".hs" . "haskell")
+      (".js" . "js")
+      (".svelte" . "svelte")
+      ("_default" . "emacs"))))
+
+(setq-default straight-use-package-by-default t)
 (use-package haskell-mode)
 (use-package ivy
   :config
@@ -76,6 +90,7 @@
   (other-window 1)
   :config
   (org-agenda-list))
+(use-package svelte-mode)
 (use-package treemacs
   :demand t
   :bind
