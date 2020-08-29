@@ -73,8 +73,14 @@
 
 (setq-default straight-use-package-by-default t)
 (use-package flycheck
+  :bind
+  (("M-n" . flycheck-next-error)
+   ("M-p" . flycheck-previous-error))
   :config
   (global-flycheck-mode))
+(use-package flycheck-haskell
+  :config
+  (flycheck-haskell-setup))
 (use-package flycheck-inline
   :config
   (global-flycheck-inline-mode))
