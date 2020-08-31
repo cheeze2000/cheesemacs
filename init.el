@@ -61,13 +61,14 @@
   (elcord-wsl--ignored-buffers
     '("Treemacs" "minibuf"))
   (elcord-wsl--assets-alist
-    '((".cpp" . "cpp")
-      (".hpp" . "cpp")
-      (".gitignore" . "git")
-      (".cabal" . "haskell")
-      (".hs" . "haskell")
-      (".js" . "js")
-      (".svelte" . "svelte")
+    '(("\\.cpp$" . "cpp")
+      ("\\.hpp$" . "cpp")
+      ("\\.gitignore" . "git")
+      ("magit" . "git")
+      ("\\.cabal$" . "haskell")
+      ("\\.hs$" . "haskell")
+      ("\\.js$" . "js")
+      ("\\.svelte$" . "svelte")
       ("_default" . "emacs"))))
 (use-package flycheck-infer
   :after flycheck
