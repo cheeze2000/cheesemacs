@@ -58,6 +58,8 @@
   :load-path "~/.emacs.d/elcord-wsl"
   :custom
   (elcord-wsl--load-path "~/.emacs.d/elcord-wsl")
+  (elcord-wsl--ignored-buffers
+    '("Treemacs" "minibuf"))
   (elcord-wsl--assets-alist
     '((".cpp" . "cpp")
       (".hpp" . "cpp")
