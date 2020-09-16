@@ -16,29 +16,32 @@
   (load bootstrap-file nil 'nomessage))
 
 (defun find-init-file ()
-  "Open the init file in current buffer."
   (interactive)
-  (find-file user-init-file))
+  (find-file
+    (concat user-emacs-directory "init.el")))
+
+(defun find-theme-file ()
+  (interactive)
+  (find-file
+    (concat user-emacs-directory "delicade-theme.el")))
 
 (defun newline-and-indent-improved ()
-  "Insert newline and keep the indentation of the previous line."
   (interactive)
   (let ((col (save-excursion
                (back-to-indentation)
                (current-column))))
-  (delete-horizontal-space)
-  (newline)
-  (indent-to-column col)))
+    (delete-horizontal-space)
+    (newline)
+    (indent-to-column col)))
 
 (electric-indent-mode -1)
 (global-display-line-numbers-mode)
-(load-theme 'pastel t)
+(load-theme 'delicade t)
 (menu-bar-mode -1)
-(set-display-table-slot
-  standard-display-table
-  'vertical-border
-  (make-glyph-code ?┃))
-(set-frame-font "Bitstream Vera Sans Mono 12" nil t)
+(scroll-bar-mode -1)
+(set-frame-font "DejaVu Sans Mono 15" nil t)
+(toggle-frame-fullscreen)
+(tool-bar-mode -1)
 
 (setq-default auto-save-default nil)
 (setq-default create-lockfiles nil)
@@ -54,66 +57,45 @@
 (setq-default tab-width 2)
 
 (straight-use-package 'use-package)
-(use-package elcord-wsl
-  :load-path "~/.emacs.d/elcord-wsl"
-  :custom
-  (elcord-wsl--load-path "~/.emacs.d/elcord-wsl")
-  (elcord-wsl--ignored-buffers
-    '("Treemacs" "minibuf"))
-  (elcord-wsl--assets-alist
-    '(("\\.cpp$" . "cpp")
-      ("\\.hpp$" . "cpp")
-      ("\\.gitignore" . "git")
-      ("magit" . "git")
-      ("\\.cabal$" . "haskell")
-      ("\\.hs$" . "haskell")
-      ("\\.js$" . "js")
-      ("\\.svelte$" . "svelte")
-      ("_default" . "emacs"))))
-(use-package flycheck-infer
-  :after flycheck
-  :load-path "~/.emacs.d/flycheck-infer")
-
 (setq-default straight-use-package-by-default t)
-(use-package flycheck
-  :bind
-  (("M-n" . flycheck-next-error)
-   ("M-p" . flycheck-previous-error))
+(use-package dhall-mode
+  :custom
+  (dhall-use-header-line nil))
+(use-package elcord
   :config
-  (global-flycheck-mode))
-(use-package flycheck-haskell
-  :config
-  (flycheck-haskell-setup))
-(use-package flycheck-inline
-  :config
-  (global-flycheck-inline-mode))
-(use-package haskell-mode)
+  (elcord-mode)
+  :custom
+  (elcord-mode-icon-alist
+    '((c++-mode . "cpp")
+      (dhall-mode . "dhall")
+      (emacs-lisp-mode . "emacs")
+      (fundamental-mode . "emacs")
+      (gitignore-mode . "git")
+      (java-mode . "java")
+      (js-mode . "js")
+      (lisp-interaction-mode . "emacs")
+      (magit-status-mode . "git")
+      (purescript-mode . "purescript")))
+  (elcord-mode-text-alist
+    '((c++-mode . "C++")
+      (dhall-mode . "Dhall")
+      (emacs-lisp-mode . "Emacs Lisp")
+      (gitignore-mode . "Git")
+      (java-mode . "Java")
+      (js-mode . "JavaScript")
+      (lisp-interaction-mode . "Emacs Lisp")
+      (magit-status-mode . "Git")
+      (purescript-mode . "PureScript")))
+  (elcord-client-id "755743906079178832")
+  (elcord-use-major-mode-as-main-icon t)
+  (elcord--editor-name "Emacs 27.1")
+  (elcord--editor-icon "emacs-icon"))
+(use-package gitignore-mode)
 (use-package ivy
   :config
   (ivy-mode))
-(use-package magit
-  :bind
-  (("C-x g" . magit-status))
-  :custom
-  (magit-display-buffer-function
-    (lambda (buffer)
-      (display-buffer buffer '(display-buffer-same-window)))))
-(use-package org
-  :demand t
-  :bind
-  (("C-c a" . org-agenda))
-  :custom
-  (org-agenda-files '("~/org"))
-  (org-agenda-tags-column 60)
-  (org-agenda-window-setup 'current-window)
-  (org-list-allow-alphabetical t)
-  (org-tags-column 60)
-  :init
-  (split-window-below)
-  (other-window 1)
-  :config
-  (org-agenda-list))
-(use-package svelte-mode)
+(use-package magit)
+(use-package purescript-mode)
 (use-package treemacs
   :demand t
   :bind
@@ -121,11 +103,11 @@
    ("C-x d" . treemacs-select-window))
   :config
   (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
-  (treemacs-select-window)
-  (treemacs--set-width 27)
-  (treemacs-toggle-node))
+  (treemacs)
+  (treemacs--set-width 30))
 
-(bind-key* "M-i" 'find-init-file)
+(bind-key "M-i" 'find-init-file)
+(bind-key "M-p" 'find-theme-file)
 (bind-key "RET" 'newline-and-indent-improved)
 
 (provide 'init)
