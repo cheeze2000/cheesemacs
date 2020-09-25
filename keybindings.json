@@ -1,0 +1,68 @@
+[
+  // Cursor
+  {
+    "key": "ctrl+a",
+    "command": "cursorLineStart",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+m",
+    "command": "cursorHome",
+    "when": "editorTextFocus"
+  },
+
+  // Explorer
+  {
+    "key": "ctrl+x d",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "list.focusUp",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "list.focusDown",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "tab",
+    "command": "list.select",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+c ctrl+d",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+c ctrl+f",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus"
+  },
+
+  // Misc
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.terminal.toggleTerminal"
+  }
+]
