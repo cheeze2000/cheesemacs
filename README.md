@@ -2,4 +2,4 @@
 ### This is where I dump all my Emacs stuff. Also, check the [wiki](https://github.com/cheeze2000/cheesemacs/wiki)!
 
 ### So conflicted...
-##### Farewell, Emacs
+##### [Farewell, Emacs](https://github.com/cheeze2000/cheesemacs/wiki/06:-Farewell)
