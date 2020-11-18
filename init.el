@@ -40,7 +40,6 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (set-frame-font "DejaVu Sans Mono 15" nil t)
-(toggle-frame-fullscreen)
 (tool-bar-mode -1)
 
 (setq-default auto-save-default nil)
@@ -58,44 +57,15 @@
 
 (straight-use-package 'use-package)
 (setq-default straight-use-package-by-default t)
-(use-package dhall-mode
-  :custom
-  (dhall-use-header-line nil))
-(use-package elcord
-  :config
-  (elcord-mode)
-  :custom
-  (elcord-mode-icon-alist
-    '((c++-mode . "cpp")
-      (dhall-mode . "dhall")
-      (emacs-lisp-mode . "emacs")
-      (fundamental-mode . "emacs")
-      (gitignore-mode . "git")
-      (java-mode . "java")
-      (js-mode . "js")
-      (lisp-interaction-mode . "emacs")
-      (magit-status-mode . "git")
-      (purescript-mode . "purescript")))
-  (elcord-mode-text-alist
-    '((c++-mode . "C++")
-      (dhall-mode . "Dhall")
-      (emacs-lisp-mode . "Emacs Lisp")
-      (gitignore-mode . "Git")
-      (java-mode . "Java")
-      (js-mode . "JavaScript")
-      (lisp-interaction-mode . "Emacs Lisp")
-      (magit-status-mode . "Git")
-      (purescript-mode . "PureScript")))
-  (elcord-client-id "755743906079178832")
-  (elcord-use-major-mode-as-main-icon t)
-  (elcord--editor-name "Emacs 27.1")
-  (elcord--editor-icon "emacs-icon"))
 (use-package gitignore-mode)
 (use-package ivy
   :config
   (ivy-mode))
-(use-package magit)
-(use-package purescript-mode)
+(use-package magit
+  :config
+  (setq magit-display-buffer-function
+    (lambda (buffer)
+      (display-buffer buffer '(display-buffer-same-window)))))
 (use-package treemacs
   :demand t
   :bind
@@ -104,7 +74,7 @@
   :config
   (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
   (treemacs)
-  (treemacs--set-width 30))
+  (treemacs--set-width 24))
 
 (bind-key "M-i" 'find-init-file)
 (bind-key "M-p" 'find-theme-file)
