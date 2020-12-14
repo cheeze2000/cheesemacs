@@ -58,6 +58,7 @@
 (straight-use-package 'use-package)
 (setq-default straight-use-package-by-default t)
 (use-package gitignore-mode)
+(use-package haskell-mode)
 (use-package ivy
   :config
   (ivy-mode))
@@ -75,6 +76,7 @@
   (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
   (treemacs)
   (treemacs--set-width 24))
+(use-package web-mode)
 
 (bind-key "M-i" 'find-init-file)
 (bind-key "M-p" 'find-theme-file)
